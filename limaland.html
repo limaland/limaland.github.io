@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LimaLand - LAZULIMA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        /* CSS com a cor atualizada para Roxo Azulado (#6A5ACD) */
+        body { background-color: #F0F0F0; font-family: 'Tahoma', Arial, sans-serif; font-size: 12px; color: #333333; margin: 0; padding: 0; }
+        a { color: #6A5ACD; text-decoration: none; cursor: pointer; } /* Cor Alterada */
+        a:hover { text-decoration: underline; }
+        .main-container { width: 900px; margin: 15px auto; }
+        .header { background-color: #DDE9F5; padding: 10px; border: 1px solid #C3D9FF; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Fredoka One', cursive; font-size: 28px; font-weight: normal; color: #1A5A9C; }
+        .nav-main a { margin: 0 8px; color: #6A5ACD; font-weight: bold; } /* Cor Alterada */
+        .search-box { border: 1px solid #C3D9FF; padding: 3px; }
+        .content-wrapper { display: flex; margin-top: 10px; gap: 10px; }
+        .left-column { width: 200px; flex-shrink: 0; }
+        .profile-pic-box { background-color: #FFFFFF; border: 1px solid #C3D9FF; padding: 5px; }
+        .profile-pic-box img { width: 100%; height: auto; display: block; }
+        .profile-name { font-size: 18px; font-weight: bold; color: #1A5A9C; margin-top: 10px; text-align: center; }
+        .action-button { display: block; background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #6A5ACD; padding: 5px; margin-top: 10px; text-align: center; font-weight: bold; border-radius: 4px; } /* Cor Alterada */
+        .profile-nav { list-style-type: none; margin: 10px 0; padding: 0; }
+        .profile-nav li { background-color: #F0F7FC; padding: 6px; border-bottom: 1px solid #DDE9F5; }
+        .profile-nav li:first-child { border-top: 1px solid #DDE9F5; }
+        .right-column { width: 100%; }
+        .box { background-color: #FFFFFF; border: 1px solid #C3D9FF; margin-bottom: 10px; }
+        .box-header { background-color: #F0F7FC; padding: 5px 8px; font-weight: bold; color: #1A5A9C; border-bottom: 1px solid #DDE9F5; }
+        .box-content { padding: 10px; }
+        .welcome-message { font-size: 16px; font-weight: bold; margin-bottom: 15px; }
+        .status-line { display: inline-block; margin-right: 15px; }
+        .page-content.hidden { display: none; }
+        .photo-gallery { text-align: center; color: #888; }
+        .scraps-list .scrap { border-bottom: 1px dotted #CCCCCC; padding: 8px 0; }
+        .scraps-list .scrap:last-child { border-bottom: none; }
+        .scrap .user-info { font-weight: bold; display: flex; align-items: center; margin-bottom: 5px; }
+        .scrap .user-info img { width: 40px; height: 40px; margin-right: 8px; }
+        .scrap p { margin: 0; padding-left: 48px; }
+        #new-scrap-text { width: 98%; height: 60px; margin-bottom: 10px; border: 1px solid #C3D9FF; padding: 5px; font-family: 'Tahoma', Arial, sans-serif;}
+        #post-scrap-button { background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #6A5ACD; padding: 5px 10px; font-weight: bold; border-radius: 4px; cursor: pointer; } /* Cor Alterada */
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <div class="logo">LimaLand</div>
+            <div class="nav-main">
+                <a data-target="page-inicio">Início</a> |
+                <a data-target="page-perfil">Perfil</a> |
+                <a data-target="page-recados">Recados</a> |
+                <a data-target="page-amigos">Amigos</a> |
+                <a data-target="page-comunidades">Comunidades</a>
+            </div>
+            <div><input type="text" class="search-box" value="buscar no LimaLand"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="profile-pic-box"><img src="https://i.imgur.com/0CIK7qu.jpeg" alt="Foto do Perfil de LAZULIMA"></div>
+                <h2 class="profile-name">LAZULIMA</h2>
+                <a href="#" class="action-button">⭐ Adicionar aos fãs</a>
+                <ul class="profile-nav">
+                    <li><a data-target="page-recados">Recados</a></li>
+                    <li><a data-target="page-fotos">Fotos</a></li> 
+                    <li><a href="#">Vídeos</a></li>
+                    <li><a href="#">Depoimentos</a></li>
+                </ul>
+            </div>
+
+            <div class="right-column">
+                <div id="page-inicio" class="page-content">
+                    <div class="box"><div class="box-content"><div class="welcome-message">Bem-vindo(a) ao LimaLand de LAZULIMA!</div><p>Este é o ponto de encontro oficial de todos os fãs. Fique à vontade para explorar, deixar um recado e ouvir meu som!</p></div></div>
+                    <div class="box">
+                        <div class="box-header">Sobre LAZULIMA</div>
+                        <div class="box-content">
+                            <p>Conecte-se comigo e ouça meu single "Nowhere's Better"!</p>
+                            <p><a href="https://youtu.be/Es5qKePXpsU?si=-5oQXrUL6Ce14nf0" target="_blank">🎬 Assista no YouTube</a><br><a href="https://open.spotify.com/intl-pt/track/4zTyu6icAEf08O3gtIY6pc?si=318216ee18c740ef" target="_blank">🎧 Ouça no Spotify</a><br><a href="https://www.instagram.com/lazulima/" target="_blank">📷 Siga no Instagram</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-perfil" class="page-content hidden">
+                     <div class="box">
+                        <div class="box-header">Perfil Detalhado</div>
+                        <div class="box-content">
+                            <span class="status-line"><b>relacionamento:</b> <a href="#">com a música</a></span><br>
+                            <span class="status-line"><b>aniversário:</b> 5 de abril</span><br>
+                            <span class="status-line"><b>quem sou eu:</b> <a href="#">cantor e compositor</a></span><br>
+                            <span class="status-line"><b>moro:</b> <a href="#">Brasil (MG)</a></span><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-recados" class="page-content hidden">
+                    <div class="box">
+                        <div class="box-header">Deixar um Recado (Scrap)</div>
+                        <div class="box-content">
+                            <textarea id="new-scrap-text" placeholder="Escreva seu recado aqui..."></textarea>
+                            <button id="post-scrap-button">Postar Recado</button>
+                            <p style="font-size:10px; color:#888;">Aviso: Os recados são apagados quando a página é atualizada.</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box-header">Mural de Recados</div>
+                        <div class="box-content scraps-list" id="scraps-list-container">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-fotos" class="page-content hidden">
+                    <div class="box">
+                        <div class="box-header">Galeria de Fotos</div>
+                        <div class="box-content">
+                            <div class="photo-gallery"><p>Em breve, fotos de shows e bastidores!</p></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="page-amigos" class="page-content hidden"><div class="box"><div class="box-header">Amigos</div><div class="box-content"><p>Em breve, uma galeria com os fãs mais engajados do LimaLand!</p></div></div></div>
+                <div id="page-comunidades" class="page-content hidden"><div class="box"><div class="box-header">Comunidades</div><div class="box-content"><p>Quais comunidades criaremos? Deixe sua sugestão!</p><ul><li>🎸 Eu amo "Nowhere's Better"</li><li>⭐ Fãs de Minas Gerais</li></ul></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('a[data-target]');
+            const contentPages = document.querySelectorAll('.page-content');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    const targetId = this.dataset.target;
+                    contentPages.forEach(page => page.classList.add('hidden'));
+                    const targetPage = document.getElementById(targetId);
+                    if (targetPage) targetPage.classList.remove('hidden');
+                });
+            });
+
+            const postButton = document.getElementById('post-scrap-button');
+            const newScrapText = document.getElementById('new-scrap-text');
+            const scrapsContainer = document.getElementById('scraps-list-container');
+            postButton.addEventListener('click', function() {
+                const scrapText = newScrapText.value.trim();
+                if (scrapText === "") {
+                    alert("Por favor, escreva um recado antes de postar.");
+                    return;
+                }
+                const scrapElement = document.createElement('div');
+                scrapElement.className = 'scrap';
+                // ESTRELA ADICIONADA AQUI
+                scrapElement.innerHTML = `
+                    <div class="user-info">
+                        <img src="https://i.imgur.com/uG5s9sB.png" alt="Visitante">
+                        <span>⭐ Visitante</span>
+                    </div>
+                    <p>${scrapText.replace(/\n/g, '<br>')}</p> 
+                `;
+                scrapsContainer.prepend(scrapElement);
+                newScrapText.value = "";
+            });
+        });
+    </script>
+</body>
+</html>
