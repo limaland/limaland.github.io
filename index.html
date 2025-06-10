@@ -1,4 +1,86 @@
-<!DOCTYPE html>
+/* CSS com todas as últimas correções */
+body { background-color: #E8EEF7; font-family: 'Tahoma', Arial, sans-serif; font-size: 12px; color: #333333; margin: 0; padding: 0; }
+a { color: #ED008C; text-decoration: none; cursor: pointer; }
+a:hover { text-decoration: underline; }
+.main-container { max-width: 950px; width: 100%; margin: 15px auto; padding: 0 10px; box-sizing: border-box; }
+
+/* --- HEADER --- */
+.header { background-color: #DDE9F5; padding: 8px 10px; border: 1px solid #BFD9F7; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.header-left { display: flex; align-items: center; }
+.header-right { display: flex; align-items: center; font-size: 11px; }
+.logo { font-family: 'Fredoka One', cursive; font-size: 28px; font-weight: normal; color: #1A5A9C; margin-right: 20px;}
+.nav-main a { margin: 0 5px; color: #ED008C; font-weight: bold; }
+.search-box { border: 1px solid #BFD9F7; padding: 3px; max-width: 150px; }
+
+/* --- LAYOUT DE 3 COLUNAS --- */
+.content-wrapper { display: flex; margin-top: 10px; gap: 10px; }
+.left-column { width: 200px; flex-shrink: 0; }
+.center-column { width: 100%; }
+.right-column { width: 180px; flex-shrink: 0; }
+
+/* --- COLUNA ESQUERDA --- */
+.profile-pic-box { background-color: #FFFFFF; border: 1px solid #BFD9F7; padding: 5px; }
+.profile-pic-box img { width: 100%; height: auto; display: block; }
+.profile-nav { list-style-type: none; margin: 10px 0; padding: 0; }
+.profile-nav li { background-color: #F0F7FC; padding: 6px 8px; border-bottom: 1px solid #DDE9F5; font-size: 11px;}
+.profile-nav li:first-child { border-top: 1px solid #DDE9F5; }
+.action-button { display: block; background-color: #EAF2FA; border: 1px solid #BFD9F7; color: #ED008C; padding: 5px; margin-top: 10px; text-align: center; font-weight: bold; border-radius: 4px; }
+
+/* --- COLUNA CENTRAL --- */
+.profile-main-header { padding: 10px; background: #F0F7FC; border: 1px solid #DDE9F5; margin-bottom:10px; }
+.profile-name { font-size: 22px; font-weight: bold; color: #1A5A9C; margin: 0; }
+.profile-name.glitter {
+    background-image: url('https://i.gifer.com/origin/a6/a626495d4f26938a78635741634b8417_w200.gif'); /* GIF de glitter azul */
+    background-size: cover;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Barra de Status */
+.status-bar { border-top: 1px dotted #ccc; border-bottom: 1px dotted #ccc; margin-top: 10px; padding: 8px 0; display: flex; flex-wrap: wrap; gap: 15px; font-size: 11px; align-items: center; }
+.rating-box { display: flex; align-items: center; gap: 5px; }
+.rating-bar-bg { background: #E8EEF7; width: 50px; height: 8px; border: 1px solid #DDE9F5; }
+.rating-bar-fg { background: #ED008C; height: 100%; }
+
+/* --- COLUNA DIREITA --- */
+.fans-grid, .communities-grid { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;}
+.grid-item { text-align: center; font-size: 10px; width: 50px; }
+.grid-item img { width: 50px; height: 50px; border-radius: 2px; }
+
+/* --- GERAL --- */
+.box { background-color: #FFFFFF; border: 1px solid #BFD9F7; margin-bottom: 10px; }
+.box-header { background-color: #F0F7FC; padding: 5px 8px; font-weight: bold; color: #1A5A9C; border-bottom: 1px solid #DDE9F5; font-size:11px; }
+.box-content { padding: 10px; line-height: 1.5; }
+.page-content.hidden { display: none; }
+#new-scrap-text, #post-scrap-button { font-family: 'Tahoma', Arial, sans-serif; }
+.status-line { display: block; margin-bottom: 5px; } /* Para formatar perfil como lista */
+
+/* Galeria de Fotos */
+.album-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
+.album-item { text-align: center; }
+.album-item img { max-width: 100%; height: auto; border: 3px solid #DDE9F5; }
+.album-item figcaption { font-weight: bold; color: #1A5A9C; margin-top: 5px;}
+.album-item .spoiler-text { font-size: 11px; color: #ED008C; }
+
+/* Recados e Depoimentos */
+.scraps-list .scrap, .testimonials-list .testimonial { border-bottom: 1px dotted #CCCCCC; padding: 8px 0; }
+.scraps-list .scrap:last-child, .testimonials-list .testimonial:last-child { border-bottom: none; }
+.scrap .user-info, .testimonial .user-info { font-weight: bold; display: flex; align-items: center; margin-bottom: 5px; }
+.scrap .user-info img, .testimonial .user-info img { width: 40px; height: 40px; margin-right: 8px; }
+.scrap p, .testimonial p { margin: 0; padding-left: 48px; }
+
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .content-wrapper { flex-direction: column; }
+    .left-column, .center-column, .right-column { width: 100%; }
+    .nav-main, .header-right span { display: none; } /* Simplifica o header no mobile */
+    .profile-main-header { text-align: center; }
+    .status-bar { justify-content: center; }
+} <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -8,75 +90,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #E8EEF7; font-family: 'Tahoma', Arial, sans-serif; font-size: 12px; color: #333333; margin: 0; padding: 0; }
-        a { color: #ED008C; text-decoration: none; cursor: pointer; }
-        a:hover { text-decoration: underline; }
-        .main-container { max-width: 950px; width: 100%; margin: 15px auto; padding: 0 10px; box-sizing: border-box; }
-        
-        /* --- HEADER --- */
-        .header { background-color: #DDE9F5; padding: 8px 10px; border: 1px solid #BFD9F7; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        .header-left { display: flex; align-items: center; }
-        .header-right { display: flex; align-items: center; font-size: 11px; }
-        .header-right span { margin-right: 10px; }
-        .logo { font-family: 'Fredoka One', cursive; font-size: 28px; font-weight: normal; color: #1A5A9C; margin-right: 20px;}
-        .nav-main a { margin: 0 5px; color: #ED008C; font-weight: bold; }
-        .search-box { border: 1px solid #BFD9F7; padding: 3px; max-width: 150px; }
-        
-        /* --- LAYOUT DE 3 COLUNAS --- */
-        .content-wrapper { display: flex; margin-top: 10px; gap: 10px; }
-        .left-column { width: 200px; flex-shrink: 0; }
-        .center-column { width: 100%; }
-        .right-column { width: 180px; flex-shrink: 0; }
-        
-        /* --- COLUNA ESQUERDA --- */
-        .profile-pic-box { background-color: #FFFFFF; border: 1px solid #BFD9F7; padding: 5px; }
-        .profile-pic-box img { width: 100%; height: auto; display: block; }
-        .profile-nav { list-style-type: none; margin: 10px 0; padding: 0; }
-        .profile-nav li { background-color: #F0F7FC; padding: 6px 8px; border-bottom: 1px solid #DDE9F5; font-size: 11px;}
-        .profile-nav li:first-child { border-top: 1px solid #DDE9F5; }
-        .action-button { display: block; background-color: #EAF2FA; border: 1px solid #BFD9F7; color: #ED008C; padding: 5px; margin-top: 10px; text-align: center; font-weight: bold; border-radius: 4px; }
-        
-        /* --- COLUNA CENTRAL --- */
-        .profile-main-header { padding: 10px; background: #F0F7FC; border: 1px solid #DDE9F5; margin-bottom:10px; }
-        .profile-name { font-size: 22px; font-weight: bold; color: #1A5A9C; margin: 0; }
-        .profile-name.glitter {
-            background-image: url('https://i.gifer.com/origin/20/203a1195318e30b80556f26d63495818_w200.gif');
-            background-size: cover;
-            color: transparent;
-            -moz-background-clip: text;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent; /* Necessário para alguns navegadores */
-        }
-        
-        /* Barra de Status */
-        .status-bar { border-top: 1px dotted #ccc; border-bottom: 1px dotted #ccc; margin-top: 10px; padding: 8px 0; display: flex; flex-wrap: wrap; gap: 15px; font-size: 11px; align-items: center; }
-        .status-item { }
-        .rating-box { display: flex; align-items: center; gap: 5px; }
-        .rating-bar-bg { background: #E8EEF7; width: 50px; height: 8px; border: 1px solid #DDE9F5; }
-        .rating-bar-fg { background: #ED008C; height: 100%; width: 50%; /* Largura inicial */ }
-        .rating-icon { cursor: pointer; }
-
-        /* --- COLUNA DIREITA --- */
-        .fans-grid, .communities-grid { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center;}
-        .grid-item { text-align: center; font-size: 10px; width: 50px; }
-        .grid-item img { width: 50px; height: 50px; }
-
-        /* --- GERAL --- */
-        .box { background-color: #FFFFFF; border: 1px solid #BFD9F7; margin-bottom: 10px; }
-        .box-header { background-color: #F0F7FC; padding: 5px 8px; font-weight: bold; color: #1A5A9C; border-bottom: 1px solid #DDE9F5; font-size:11px; }
-        .box-content { padding: 10px; line-height: 1.5; }
-        .page-content.hidden { display: none; }
-        #new-scrap-text, #post-scrap-button { font-family: 'Tahoma', Arial, sans-serif; }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 768px) {
-            .content-wrapper { flex-direction: column; }
-            .left-column, .center-column, .right-column { width: 100%; }
-            .nav-main, .header-right { display: none; } /* Simplifica o header no mobile */
-            .profile-main-header { text-align: center; }
-            .status-bar { justify-content: center; }
-        }
+        /* COLE O CÓDIGO CSS DA PARTE 1 AQUI DENTRO */
     </style>
 </head>
 <body>
@@ -88,12 +102,12 @@
                     <a data-target="page-inicio">🏠 Início</a> |
                     <a data-target="page-perfil">👤 Perfil</a> |
                     <a data-target="page-recados">💬 Recados</a> |
-                    <a data-target="page-amigos">⭐ Amigos</a> |
+                    <a data-target="page-amigos">⭐ Fãs</a> |
                     <a data-target="page-comunidades">👥 Comunidades</a>
                 </div>
             </div>
             <div class="header-right">
-                <span>lazulima.music@email.com</span> | <a href="#">Sair</a>
+                <a href="#">Sair</a>
                 <input type="text" class="search-box" value="buscar no LimaLand">
             </div>
         </div>
@@ -114,12 +128,12 @@
                 <div class="profile-main-header">
                     <h1 class="profile-name glitter">LAZULIMA</h1>
                     <div class="status-bar">
-                        <div class="status-item"><b>recados</b> (<span id="scrap-count">12</span>)</div>
-                        <div class="status-item"><b>fotos</b> (<span id="photo-count">3</span>)</div>
-                        <div class="status-item"><b>fãs</b> (<span id="fan-count">1987</span>)</div>
-                        <div class="rating-box"><span class="rating-icon" data-target="rating-confiavel">✅</span> <b>confiável</b> <div class="rating-bar-bg"><div id="rating-confiavel" class="rating-bar-fg" style="background-color: #6197D3; width: 75%;"></div></div></div>
-                        <div class="rating-box"><span class="rating-icon" data-target="rating-legal">😊</span> <b>legal</b> <div class="rating-bar-bg"><div id="rating-legal" class="rating-bar-fg" style="background-color: #F8853A; width: 90%;"></div></div></div>
-                        <div class="rating-box"><span class="rating-icon" data-target="rating-sexy">❤️</span> <b>sexy</b> <div class="rating-bar-bg"><div id="rating-sexy" class="rating-bar-fg" style="background-color: #ED008C; width: 60%;"></div></div></div>
+                        <div class="status-item"><b>recados</b> (12)</div>
+                        <div class="status-item"><b>fotos</b> (3)</div>
+                        <div class="status-item"><b>fãs</b> (1987)</div>
+                        <div class="rating-box"><span class="rating-icon" data-target="rating-confiavel">✅</span><b>confiável</b><div class="rating-bar-bg"><div id="rating-confiavel" class="rating-bar-fg" style="background-color: #6197D3; width: 75%;"></div></div></div>
+                        <div class="rating-box"><span class="rating-icon" data-target="rating-legal">😊</span><b>legal</b><div class="rating-bar-bg"><div id="rating-legal" class="rating-bar-fg" style="background-color: #F8853A; width: 90%;"></div></div></div>
+                        <div class="rating-box"><span class="rating-icon" data-target="rating-sexy">❤️</span><b>sexy</b><div class="rating-bar-bg"><div id="rating-sexy" class="rating-bar-fg" style="background-color: #ED008C; width: 25%;"></div></div></div>
                     </div>
                 </div>
 
@@ -140,18 +154,18 @@
                 <div id="page-depoimentos" class="page-content hidden">
                     <div class="box"><div class="box-header">💌 Depoimentos</div><div class="box-content testimonials-list"><div class="testimonial"><div class="user-info"><img src="https://i.imgur.com/fB5gY7d.png" alt="Fã 1"><span>Juliana</span></div><p>"Conheci o som do LAZULIMA por acaso e virou a trilha sonora da minha vida. As letras são profundas e a melodia te abraça. 'Nowhere's Better' é um hino! Ansiosa pelos próximos lançamentos. Sucesso sempre!"</p></div><div class="testimonial"><div class="user-info"><img src="https://i.imgur.com/uG5s9sB.png" alt="Fã 2"><span>Marcos</span></div><p>"Que artista incrível! A identidade visual, a sonoridade, tudo se conecta. É muito bom ver um trabalho feito com tanta alma e verdade. Já sou fã de carteirinha e o LimaLand virou minha página inicial."</p></div></div></div>
                 </div>
-                <div id="page-amigos" class="page-content hidden"><div class="box"><div class="box-header">⭐ Amigos</div><div class="box-content"><p>Em breve!</p></div></div></div>
+                <div id="page-amigos" class="page-content hidden"><div class="box"><div class="box-header">⭐ Fãs</div><div class="box-content"><p>Em breve!</p></div></div></div>
                 <div id="page-comunidades" class="page-content hidden"><div class="box"><div class="box-header">👥 Comunidades</div><div class="box-content"><p>Em breve!</p></div></div></div>
             </div>
 
             <div class="right-column">
                 <div class="box">
-                    <div class="box-header">⭐ Fãs (<span id="fan-count-2">1987</span>)</div>
+                    <div class="box-header">⭐ Fãs (1987)</div>
                     <div class="box-content fans-grid">
                         <div class="grid-item"><img src="https://i.imgur.com/fB5gY7d.png" alt="Fã"><a href="#">Juliana</a></div>
                         <div class="grid-item"><img src="https://i.imgur.com/uG5s9sB.png" alt="Fã"><a href="#">Marcos</a></div>
                         <div class="grid-item"><img src="https://i.imgur.com/S5X1ZAA.png" alt="Fã"><a href="#">Estrela</a></div>
-                        <div class="grid-item"><img src="https://i.imgur.com/fB5gY7d.png" alt="Fã"><a href="#">Maria</a></div>
+                        <div class="grid-item"><img src="https://i.imgur.com/0CIK7qu.jpeg" alt="Fã"><a href="#">Lima</a></div>
                     </div>
                 </div>
                 <div class="box">
