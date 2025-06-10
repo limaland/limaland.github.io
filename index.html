@@ -8,67 +8,52 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <style>
-        /* CSS com a cor atualizada para Roxo Azulado (#6A5ACD) */
+        /* CSS com a cor ROSA (#ED008C) */
         body { background-color: #F0F0F0; font-family: 'Tahoma', Arial, sans-serif; font-size: 12px; color: #333333; margin: 0; padding: 0; }
-        a { color: #6A5ACD; text-decoration: none; cursor: pointer; }
+        a { color: #ED008C; text-decoration: none; cursor: pointer; }
         a:hover { text-decoration: underline; }
-        
-        /* --- MUDANÇA PARA RESPONSIVIDADE --- */
-        .main-container { 
-            max-width: 900px; /* Largura máxima de 900px */
-            width: 100%; /* Ocupa 100% da tela em telas menores */
-            margin: 15px auto; 
-            padding: 0 10px; /* Adiciona um respiro nas laterais em telas pequenas */
-            box-sizing: border-box; /* Garante que o padding não aumente a largura total */
-        }
-        
-        .header { background-color: #DDE9F5; padding: 10px; border: 1px solid #C3D9FF; display: flex; justify-content: space-between; align-items: center; }
+        .main-container { max-width: 900px; width: 100%; margin: 15px auto; padding: 0 10px; box-sizing: border-box; }
+        .header { background-color: #DDE9F5; padding: 10px; border: 1px solid #C3D9FF; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { font-family: 'Fredoka One', cursive; font-size: 28px; font-weight: normal; color: #1A5A9C; }
-        .nav-main a { margin: 0 8px; color: #6A5ACD; font-weight: bold; }
+        .nav-main a { margin: 0 8px; color: #ED008C; font-weight: bold; }
         .search-box { border: 1px solid #C3D9FF; padding: 3px; max-width: 150px; }
         .content-wrapper { display: flex; margin-top: 10px; gap: 10px; }
         .left-column { width: 200px; flex-shrink: 0; }
         .profile-pic-box { background-color: #FFFFFF; border: 1px solid #C3D9FF; padding: 5px; }
         .profile-pic-box img { width: 100%; height: auto; display: block; }
         .profile-name { font-size: 18px; font-weight: bold; color: #1A5A9C; margin-top: 10px; text-align: center; }
-        .action-button { display: block; background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #6A5ACD; padding: 5px; margin-top: 10px; text-align: center; font-weight: bold; border-radius: 4px; }
+        .action-button { display: block; background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #ED008C; padding: 5px; margin-top: 10px; text-align: center; font-weight: bold; border-radius: 4px; }
         .profile-nav { list-style-type: none; margin: 10px 0; padding: 0; }
-        .profile-nav li { background-color: #F0F7FC; padding: 6px; border-bottom: 1px solid #DDE9F5; }
+        .profile-nav li { background-color: #F0F7FC; padding: 6px 8px; border-bottom: 1px solid #DDE9F5; }
         .profile-nav li:first-child { border-top: 1px solid #DDE9F5; }
         .right-column { width: 100%; }
         .box { background-color: #FFFFFF; border: 1px solid #C3D9FF; margin-bottom: 10px; }
         .box-header { background-color: #F0F7FC; padding: 5px 8px; font-weight: bold; color: #1A5A9C; border-bottom: 1px solid #DDE9F5; }
-        .box-content { padding: 10px; }
+        .box-content { padding: 10px; line-height: 1.5; }
         .welcome-message { font-size: 16px; font-weight: bold; margin-bottom: 15px; }
-        .status-line { display: inline-block; margin-right: 15px; }
+        .status-line { display: block; margin-bottom: 5px; }
         .page-content.hidden { display: none; }
-        .photo-gallery { text-align: center; color: #888; }
-        .scraps-list .scrap { border-bottom: 1px dotted #CCCCCC; padding: 8px 0; }
-        .scraps-list .scrap:last-child { border-bottom: none; }
-        .scrap .user-info { font-weight: bold; display: flex; align-items: center; margin-bottom: 5px; }
-        .scrap .user-info img { width: 40px; height: 40px; margin-right: 8px; }
-        .scrap p { margin: 0; padding-left: 48px; }
+        .scraps-list .scrap, .testimonials-list .testimonial { border-bottom: 1px dotted #CCCCCC; padding: 8px 0; }
+        .scraps-list .scrap:last-child, .testimonials-list .testimonial:last-child { border-bottom: none; }
+        .scrap .user-info, .testimonial .user-info { font-weight: bold; display: flex; align-items: center; margin-bottom: 5px; }
+        .scrap .user-info img, .testimonial .user-info img { width: 40px; height: 40px; margin-right: 8px; }
+        .scrap p, .testimonial p { margin: 0; padding-left: 48px; }
         #new-scrap-text { width: 98%; height: 60px; margin-bottom: 10px; border: 1px solid #C3D9FF; padding: 5px; font-family: 'Tahoma', Arial, sans-serif;}
-        #post-scrap-button { background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #6A5ACD; padding: 5px 10px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        #post-scrap-button { background-color: #EAF2FA; border: 1px solid #C3D9FF; color: #ED008C; padding: 5px 10px; font-weight: bold; border-radius: 4px; cursor: pointer; }
 
-        /* --- ✨ A MÁGICA DA VERSÃO CELULAR ACONTECE AQUI ✨ --- */
+        /* Estilos para a Galeria de Capas de Música */
+        .album-gallery { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 15px; }
+        .album-item { text-align: center; width: 150px; }
+        .album-item img { width: 150px; height: 150px; border: 3px solid #DDE9F5; margin-bottom: 5px; }
+        .album-item figcaption { font-weight: bold; color: #1A5A9C; }
+        .album-item .spoiler-text { font-size: 11px; color: #ED008C; }
+
         @media (max-width: 768px) {
-            /* Quando a tela for menor que 768px... */
-            .content-wrapper {
-                flex-direction: column; /* As colunas ficam uma em cima da outra */
-            }
-
-            .left-column, .right-column {
-                width: 100%; /* Ambas as colunas ocupam a largura total */
-            }
-
-            .logo {
-                font-size: 22px; /* Diminui um pouco o logo */
-            }
-
-            .nav-main {
-                display: none; /* Esconde o menu principal para simplificar (podemos fazer um menu 'sanduíche' depois) */
-            }
+            .content-wrapper { flex-direction: column; }
+            .left-column, .right-column { width: 100%; }
+            .logo { font-size: 22px; }
+            .nav-main { display: none; }
+            .album-gallery { justify-content: center; }
         }
     </style>
 </head>
@@ -77,11 +62,11 @@
         <div class="header">
             <div class="logo">LimaLand</div>
             <div class="nav-main">
-                <a data-target="page-inicio">Início</a> |
-                <a data-target="page-perfil">Perfil</a> |
-                <a data-target="page-recados">Recados</a> |
-                <a data-target="page-amigos">Amigos</a> |
-                <a data-target="page-comunidades">Comunidades</a>
+                <a data-target="page-inicio">🏠 Início</a> |
+                <a data-target="page-perfil">👤 Perfil</a> |
+                <a data-target="page-recados">💬 Recados</a> |
+                <a data-target="page-amigos">⭐ Amigos</a> |
+                <a data-target="page-comunidades">👥 Comunidades</a>
             </div>
             <div><input type="text" class="search-box" value="buscar no LimaLand"></div>
         </div>
@@ -91,29 +76,81 @@
                 <h2 class="profile-name">LAZULIMA</h2>
                 <a href="#" class="action-button">⭐ Adicionar aos fãs</a>
                 <ul class="profile-nav">
-                    <li><a data-target="page-recados">Recados</a></li>
-                    <li><a data-target="page-fotos">Fotos</a></li> 
-                    <li><a href="#">Vídeos</a></li>
-                    <li><a href="#">Depoimentos</a></li>
+                    <li><a data-target="page-recados">💬 Recados</a></li>
+                    <li><a data-target="page-fotos">📷 Fotos</a></li> 
+                    <li><a href="#">📹 Vídeos</a></li>
+                    <li><a data-target="page-depoimentos">💌 Depoimentos</a></li>
                 </ul>
             </div>
             <div class="right-column">
                 <div id="page-inicio" class="page-content">
+                    <div class="box">
+                        <div class="box-header">🍀 Sorte do Dia</div>
+                        <div class="box-content">
+                            Sua música favorita tocará inesperadamente hoje. Aproveite a vibe!
+                        </div>
+                    </div>
                     <div class="box"><div class="box-content"><div class="welcome-message">Bem-vindo(a) ao LimaLand de LAZULIMA!</div><p>Este é o ponto de encontro oficial de todos os fãs. Fique à vontade para explorar, deixar um recado e ouvir meu som!</p></div></div>
-                    <div class="box"><div class="box-header">Sobre LAZULIMA</div><div class="box-content"><p>Conecte-se comigo e ouça meu single "Nowhere's Better"!</p><p><a href="https://youtu.be/Es5qKePXpsU?si=-5oQXrUL6Ce14nf0" target="_blank">🎬 Assista no YouTube</a><br><a href="https://open.spotify.com/intl-pt/track/4zTyu6icAEf08O3gtIY6pc?si=318216ee18c740ef" target="_blank">🎧 Ouça no Spotify</a><br><a href="https://www.instagram.com/lazulima/" target="_blank">📷 Siga no Instagram</a></p></div></div>
+                    <div class="box"><div class="box-header">🎵 Sobre LAZULIMA</div><div class="box-content"><p>Conecte-se comigo e ouça meu single "Nowhere's Better"!</p><p><a href="https://youtu.be/Es5qKePXpsU?si=-5oQXrUL6Ce14nf0" target="_blank">🎬 Assista no YouTube</a><br><a href="https://open.spotify.com/intl-pt/track/4zTyu6icAEf08O3gtIY6pc?si=318216ee18c740ef" target="_blank">🎧 Ouça no Spotify</a><br><a href="https://www.instagram.com/lazulima/" target="_blank">📷 Siga no Instagram</a></p></div></div>
                 </div>
                 <div id="page-perfil" class="page-content hidden">
-                     <div class="box"><div class="box-header">Perfil Detalhado</div><div class="box-content"><span class="status-line"><b>relacionamento:</b> <a href="#">com a música</a></span><br><span class="status-line"><b>aniversário:</b> 5 de abril</span><br><span class="status-line"><b>quem sou eu:</b> <a href="#">cantor e compositor</a></span><br><span class="status-line"><b>moro:</b> <a href="#">Brasil (MG)</a></span><br></div></div>
+                     <div class="box">
+                        <div class="box-header">👤 Perfil Detalhado</div>
+                        <div class="box-content">
+                            <span class="status-line"><b>relacionamento:</b> com a música</span>
+                            <span class="status-line"><b>aniversário:</b> 5 de abril</span>
+                            <span class="status-line"><b>quem sou eu:</b> cantor e compositor</span>
+                            <span class="status-line"><b>moro:</b> Brasil (MG)</span>
+                            <hr style="border:0; border-top: 1px dotted #ccc; margin: 10px 0;">
+                            <span class="status-line"><b>humor:</b> Criativo 💡</span>
+                            <span class="status-line"><b>interesses:</b> Música, Noites Estreladas, Poesia</span>
+                        </div>
+                    </div>
                 </div>
                 <div id="page-recados" class="page-content hidden">
-                    <div class="box"><div class="box-header">Deixar um Recado (Scrap)</div><div class="box-content"><textarea id="new-scrap-text" placeholder="Escreva seu recado aqui..."></textarea><button id="post-scrap-button">Postar Recado</button><p style="font-size:10px; color:#888;">Aviso: Os recados são apagados quando a página é atualizada.</p></div></div>
-                    <div class="box"><div class="box-header">Mural de Recados</div><div class="box-content scraps-list" id="scraps-list-container"></div></div>
+                    <div class="box"><div class="box-header">💬 Deixar um Recado (Scrap)</div><div class="box-content"><textarea id="new-scrap-text" placeholder="Escreva seu recado aqui..."></textarea><button id="post-scrap-button">Postar Recado</button><p style="font-size:10px; color:#888;">Aviso: Os recados são apagados quando a página é atualizada.</p></div></div>
+                    <div class="box"><div class="box-header">💬 Mural de Recados</div><div class="box-content scraps-list" id="scraps-list-container"></div></div>
                 </div>
                 <div id="page-fotos" class="page-content hidden">
-                    <div class="box"><div class="box-header">Galeria de Fotos</div><div class="box-content"><div class="photo-gallery"><p>Em breve, fotos de shows e bastidores!</p></div></div></div>
+                    <div class="box">
+                        <div class="box-header">📷 Discografia</div>
+                        <div class="box-content">
+                            <div class="album-gallery">
+                                <figure class="album-item">
+                                    <img src="https://i.imgur.com/3tFPk6M.jpeg" alt="Capa de Nowhere's Better">
+                                    <figcaption>Nowhere's Better</figcaption>
+                                </figure>
+                                <figure class="album-item">
+                                    <img src="https://i.imgur.com/rHOMJ9r.jpeg" alt="Capa de Deixa Pra Lá">
+                                    <figcaption>deixa pra lá</figcaption>
+                                    <p class="spoiler-text">(Em Breve)</p>
+                                </figure>
+                                <figure class="album-item">
+                                    <img src="https://i.imgur.com/y7zUQ1Y.jpeg" alt="Capa de Dear Juliet">
+                                    <figcaption>dear juliet</figcaption>
+                                    <p class="spoiler-text">(Em Breve)</p>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="page-amigos" class="page-content hidden"><div class="box"><div class="box-header">Amigos</div><div class="box-content"><p>Em breve, uma galeria com os fãs mais engajados do LimaLand!</p></div></div></div>
-                <div id="page-comunidades" class="page-content hidden"><div class="box"><div class="box-header">Comunidades</div><div class="box-content"><p>Quais comunidades criaremos? Deixe sua sugestão!</p><ul><li>🎸 Eu amo "Nowhere's Better"</li><li>⭐ Fãs de Minas Gerais</li></ul></div></div></div>
+                <div id="page-depoimentos" class="page-content hidden">
+                    <div class="box">
+                        <div class="box-header">💌 Depoimentos</div>
+                        <div class="box-content testimonials-list">
+                            <div class="testimonial">
+                                <div class="user-info"><img src="https://i.imgur.com/fB5gY7d.png" alt="Fã 1"><span>Juliana</span></div>
+                                <p>"Conheci o som do LAZULIMA por acaso e virou a trilha sonora da minha vida. As letras são profundas e a melodia te abraça. 'Nowhere's Better' é um hino! Ansiosa pelos próximos lançamentos. Sucesso sempre!"</p>
+                            </div>
+                            <div class="testimonial">
+                                 <div class="user-info"><img src="https://i.imgur.com/uG5s9sB.png" alt="Fã 2"><span>Marcos</span></div>
+                                <p>"Que artista incrível! A identidade visual, a sonoridade, tudo se conecta. É muito bom ver um trabalho feito com tanta alma e verdade. Já sou fã de carteirinha e o LimaLand virou minha página inicial."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="page-amigos" class="page-content hidden"><div class="box"><div class="box-header">⭐ Amigos</div><div class="box-content"><p>Em breve, uma galeria com os fãs mais engajados do LimaLand!</p></div></div></div>
+                <div id="page-comunidades" class="page-content hidden"><div class="box"><div class="box-header">👥 Comunidades</div><div class="box-content"><p>Quais comunidades criaremos? Deixe sua sugestão!</p><ul><li>🎸 Eu amo "Nowhere's Better"</li><li>⭐ Fãs de Minas Gerais</li></ul></div></div></div>
             </div>
         </div>
     </div>
@@ -138,7 +175,7 @@
                 if (scrapText === "") { alert("Por favor, escreva um recado antes de postar."); return; }
                 const scrapElement = document.createElement('div');
                 scrapElement.className = 'scrap';
-                scrapElement.innerHTML = `<div class="user-info"><img src="https://i.imgur.com/uG5s9sB.png" alt="Visitante"><span>⭐ Visitante</span></div><p>${scrapText.replace(/\n/g, '<br>')}</p>`;
+                scrapElement.innerHTML = `<div class="user-info"><img src="https://i.imgur.com/0CIK7qu.jpeg" alt="Visitante"><span>⭐ Visitante</span></div><p>${scrapText.replace(/\n/g, '<br>')}</p>`;
                 scrapsContainer.prepend(scrapElement);
                 newScrapText.value = "";
             });
